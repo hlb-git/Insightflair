@@ -39,7 +39,21 @@ const dbWriter = (row) => {
 
 
 app.post('upload',upload.single('file'), async (req, res) => {
+  const filePath = req.file.path;
   
+  try {
+    const rows = await csvParser(filePath);
+    await Promise.all(rows.map(dbWriter));
+    fs.unlinkSync(filePath);
+    res.send('File uploaded and processed successfully')
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error processing the uploaded file');
+  }
+});
+
+
+
 
 
 
