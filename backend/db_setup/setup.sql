@@ -10,3 +10,8 @@ CREATE TABLE IF NOT EXISTS agusto_data(
   customer_count INT NOT NULL, 
   profit DECIMAL(10, 2) NOT NULL
 );
+
+
+CREATE USER 'agusto_user'@'localhost' IDENTIFIED BY 'agusto_pwd';
+
+GRANT ALL PRIVILEGES ON agusto_db.* TO 'agusto_user'@'localhost';
