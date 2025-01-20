@@ -1,2 +1,1 @@
-# agusto_accessment
-Technical assessment for software engineering role
+Welcome to the Agusto_test repository
