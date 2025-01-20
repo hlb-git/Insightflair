@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
-
+import './fileUpload.css';
 
 export const FileUpload = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -38,7 +38,7 @@ export const FileUpload = () => {
   };
 
   return (
-    <div>
+    <div className='formWrapper'>
       <h1> Upload csv file only </h1>
       <form onSubmit={handleSubmit}>
         <input 
@@ -46,7 +46,7 @@ export const FileUpload = () => {
           accept='.csv' 
           onChange={handleFileChange}
         />
-        <button type='submit'>
+        <button type='submit' disabled={uploading}>
           {uploading ? 'Uploading...' : 'Upload'}
         </button>
       </form>
