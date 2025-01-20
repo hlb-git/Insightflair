@@ -1,9 +1,8 @@
 const express = require('express');
 const multer = require('multer');
 const mysql = require('mysql2');
-const fs = require('fs');
-const csv = require('csv-parser');
 const bodyParser = require('body-parser');
+const csvParser = require('./helperFunction/csvParser');
 
 
 const PORT = 5050;
@@ -23,7 +22,23 @@ db.connect((err) => {
 });
 
 
-app.post('upload', (req, res) => {
+const dbWriter = (row) => {
+  return Promise((resolve, reject) => {
+    const { date, revenue, expenses, profit, customer_count } = row;
+    const query = 'INSERT INTO agusto_data (date, revenue, expenses, profit, customer_count) VALUES (?, ?, ?, ?, ?)';
+    db.query(
+      query, 
+      [date, revenue, expenses, profit, customer_count],
+      (err, results) => {
+        if (err) return reject(err);
+        resolve(results);
+      });
+  });
+};
+
+
+
+app.post('upload',upload.single('file'), async (req, res) => {
   
 
 
