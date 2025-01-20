@@ -2,8 +2,13 @@ const express = require('express');
 const multer = require('multer');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
-const csvParser = require('./helperFunction/csvParser');
+const csvParser = require('./helperFunctions/csvParser');
 
+
+const upload = multer({
+  dest: 'uploads/',
+  limits: { filesize: 10 * 1024 * 1024 }
+});
 
 const PORT = 5050;
 const app = express();
@@ -38,7 +43,7 @@ const dbWriter = (row) => {
 
 
 
-app.post('upload',upload.single('file'), async (req, res) => {
+app.post('upload', upload.single('file'), async (req, res) => {
   const filePath = req.file.path;
   
   try {
@@ -55,9 +60,8 @@ app.post('upload',upload.single('file'), async (req, res) => {
 
 
 
-
-
-// app.get('/metrics', (req, res) => 
+//app.get('/metrics', (req, res) => {
+  //const query = "SELECT 
 
 
 app.listen(PORT, () => {

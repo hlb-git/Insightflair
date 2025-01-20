@@ -2,7 +2,7 @@ const csv = require('csv-parser');
 const fs = require('fs');
 
 
-export const csvParser = (filePath) => {
+const csvParser = (filePath) => {
   return Promise((resolve, reject) => {
     const rows = [];
     fs.createReadStream(filePath)
@@ -12,3 +12,6 @@ export const csvParser = (filePath) => {
       .on('error', (err) => reject(err));
   });
 };
+
+
+module.exports = csvParser; 
