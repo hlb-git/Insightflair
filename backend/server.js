@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
 const mysql = require('mysql2');
-const bodyParser = require('body-parser');
 const csvParser = require('./helperFunctions/csvParser');
 
 
@@ -13,8 +12,9 @@ const upload = multer({
 
 const PORT = 5050;
 const app = express();
+app.options('*', cors());
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
 const db = mysql.createConnection({
   host: 'localhost',
@@ -30,7 +30,7 @@ db.connect((err) => {
 
 
 const dbWriter = (row) => {
-  return Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const { date, revenue, expenses, profit, customer_count } = row;
     const query = 'INSERT INTO agusto_data (date, revenue, expenses, profit, customer_count) VALUES (?, ?, ?, ?, ?)';
     db.query(
@@ -45,11 +45,12 @@ const dbWriter = (row) => {
 
 
 
-app.post('upload', upload.single('file'), async (req, res) => {
+app.post('/api/upload', upload.single('file'), async (req, res) => {
   const filePath = req.file.path;
   
   try {
     const rows = await csvParser(filePath);
+    console.log(rows);
     await Promise.all(rows.map(dbWriter));
     fs.unlinkSync(filePath);
     res.send('File uploaded and processed successfully')

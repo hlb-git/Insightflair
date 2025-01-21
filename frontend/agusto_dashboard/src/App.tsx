@@ -1,4 +1,3 @@
-import './App.css'
 import {FileUpload} from './components/fileUpload';
 import {BrowserRouter as Router, Routes, Route} from  'react-router-dom';
 

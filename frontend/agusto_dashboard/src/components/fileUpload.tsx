@@ -22,11 +22,12 @@ export const FileUpload = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:5050/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const response = await axios.post(
+        'http://localhost:5050/api/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            },
+          });
 
       setResponseMsg(response.data);
     } catch (err) {

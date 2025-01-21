@@ -5,13 +5,13 @@ USE agusto_db;
 CREATE TABLE IF NOT EXISTS agusto_data(
   id INT AUTO_INCREMENT PRIMARY KEY,
   date DATE NOT NULL,
-  revenue DECIMAL(10, 2) NOT NULL,
-  expenses DECIMAL(10, 2) NOT NULL,
+  revenue INT NOT NULL,
+  expenses INT NOT NULL,
   customer_count INT NOT NULL, 
-  profit DECIMAL(10, 2) NOT NULL
+  profit INT NOT NULL
 );
 
 
-CREATE USER 'agusto_user'@'localhost' IDENTIFIED BY 'agusto_pwd';
+CREATE USER IF NOT EXISTS 'agusto_user'@'localhost' IDENTIFIED BY 'agusto_pwd';
 
 GRANT ALL PRIVILEGES ON agusto_db.* TO 'agusto_user'@'localhost';
