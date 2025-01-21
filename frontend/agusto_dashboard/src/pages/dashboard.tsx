@@ -1,6 +1,7 @@
 import {BarChartComponent} from '../components/barchart';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import './dashboard.css';
 
 
 export function Dashboard() {
@@ -23,11 +24,21 @@ export function Dashboard() {
   }, []);
 
   return(
-    <div className="dboard-wrapper">
+ <div className="dboard-wrapper">
+      <h1 className="dboard-title">Welcome to Dashboard</h1>
       <div className="dboard-container">
-        <div className='top-charts'></div>
-        <div className='bottom-charts'></div>
-        <BarChartComponent data={data}/>
+        <div className="chart-item">
+          <BarChartComponent data={data} />
+        </div>
+        <div className="chart-item">
+          <BarChartComponent data={data} />
+        </div>
+        <div className="chart-item">
+          <BarChartComponent data={data} />
+        </div>
+        <div className="chart-item">
+          <BarChartComponent data={data} />
+        </div>
       </div>
     </div>
   )
