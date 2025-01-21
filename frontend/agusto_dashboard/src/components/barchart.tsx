@@ -13,7 +13,7 @@ import {
   ResponsiveContainer
 } from 'recharts';
 
-export const AgustoCharts = () => {
+export const BarChartComponent = () => {
   const [data, setData] = useState<any>('');
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export const AgustoCharts = () => {
           'http://localhost:5050/api/metrics'
         );
 
-        setData(response);
+        setData(response.data);
 
       } catch (error) {
         console.log('Error:', error);
@@ -34,17 +34,17 @@ export const AgustoCharts = () => {
 
   return (
     <div>
-    <ResponsiveContainer width="100%" height={300}>
-      <BarChart data={data}>
-        <CartesianGrid />
-        <XAxis dataKey="date" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="revenue" fill="#8884d8" />
-        <Bar dataKey="expenses" fill="#82ca9d" />
-      </BarChart>
-    </ResponsiveContainer>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="date" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="revenue" fill="#8884d8" />
+          <Bar dataKey="expenses" fill="#82ca9d" />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   )
 
