@@ -45,7 +45,6 @@ const dbWriter = (row) => {
 };
 
 
-
 app.post('/api/upload', upload.single('file'), async (req, res) => {
   const filePath = req.file.path;
   
@@ -59,8 +58,6 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
     res.status(500).send('Error processing the uploaded file');
   }
 });
-
-
 
 
 app.get('/api/metrics', (req, res) => {

@@ -4,7 +4,7 @@ USE agusto_db;
 
 CREATE TABLE IF NOT EXISTS agusto_data(
   id INT AUTO_INCREMENT PRIMARY KEY,
-  date DATE NOT NULL,
+  date VARCHAR(20) NOT NULL,
   revenue INT NOT NULL,
   expenses INT NOT NULL,
   customer_count INT NOT NULL, 

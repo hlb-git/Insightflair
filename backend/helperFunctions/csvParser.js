@@ -10,9 +10,8 @@ const csvParser = (filePath) => {
       .on('data', (row) => {
         row.Customer_Count = row['Customer Count'];
         delete row['Customer Count'];
-        const correctDate = new Date(row.Date).toISOString().split('T')[0];
         rows.push({
-          date: correctDate,
+          date: row.Date,
           revenue: Number(row.Revenue),
           expenses: Number(row.Expenses),
           profit: Number(row.Profit),
