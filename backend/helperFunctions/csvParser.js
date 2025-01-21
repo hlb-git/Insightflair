@@ -14,8 +14,8 @@ const csvParser = (filePath) => {
         rows.push({
           date: correctDate,
           revenue: Number(row.Revenue),
-          Expenses: Number(row.Expenses),
-          Profit: Number(row.Profit),
+          expenses: Number(row.Expenses),
+          profit: Number(row.Profit),
           customer_count: Number(row.Customer_Count)
         })
       })

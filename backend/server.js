@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const cors = require('cors');
 const multer = require('multer');
 const mysql = require('mysql2');
@@ -50,7 +51,6 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
   
   try {
     const rows = await csvParser(filePath);
-    console.log(rows);
     await Promise.all(rows.map(dbWriter));
     fs.unlinkSync(filePath);
     res.send('File uploaded and processed successfully')
@@ -63,9 +63,22 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
 
 
 
-//app.get('/metrics', (req, res) => {
-  //const query = "SELECT 
-
+app.get('/api/metrics', (req, res) => {
+  try {
+    const query = "SELECT * FROM agusto_data";
+    db.query(query, (err, results) => {
+      if (err) {
+        console.log('Error fetching data from database');
+        res.status(500).send('Error retrieving metrics from db');
+      } else {
+        res.json(results);
+      }
+    });
+    } catch (err) {
+      console.error('Unexpected error:', err);
+      res.status(500).send('Error:', err);
+    }
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}...`);
