@@ -1,10 +1,6 @@
-import {useState, useEffect} from 'react';
-import axios from 'axios';
 import {
   BarChart,
   Bar,
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   Tooltip,
@@ -13,25 +9,9 @@ import {
   ResponsiveContainer
 } from 'recharts';
 
-export const BarChartComponent = () => {
-  const [data, setData] = useState<any>('');
-
-  useEffect(() => {
-    const requestData: any = async () => {
-      try {
-        const response = await axios.get(
-          'http://localhost:5050/api/metrics'
-        );
-
-        setData(response.data);
-
-      } catch (error) {
-        console.log('Error:', error);
-      };
-    }
-    requestData();
-  }, []);
-
+export const BarChartComponent = ({ data }: { data: any[] }) => {
+  
+  console.log(data);
   return (
     <div>
       <ResponsiveContainer width="100%" height="100%">
@@ -47,5 +27,4 @@ export const BarChartComponent = () => {
       </ResponsiveContainer>
     </div>
   )
-
 };
