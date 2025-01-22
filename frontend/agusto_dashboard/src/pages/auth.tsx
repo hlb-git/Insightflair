@@ -177,7 +177,7 @@ export function Auth() {
                   </a>
                 </p>
 
-                <MDBBtn className="mb-4" size="lg" type="submit">
+                <MDBBtn style={{ background: '#6822ff' }} className="mb-4" size="lg" type="submit">
                   {isSignup ? "Signup" : "Login"}
                 </MDBBtn>
               </form>

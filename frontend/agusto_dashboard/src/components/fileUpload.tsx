@@ -1,11 +1,13 @@
 import {useState} from 'react';
 import axios from 'axios';
 import './fileUpload.css';
+import { useNavigate } from "react-router-dom";
 
 export const FileUpload = () => {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [responseMsg, setResponseMsg] = useState<string>('');
+  const navigate = useNavigate();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -29,7 +31,8 @@ export const FileUpload = () => {
             },
           });
 
-      setResponseMsg(response.data);
+      alert(response.data);
+      navigate("/dashboard");
     } catch (err) {
       console.error(err);
       setResponseMsg('Error uploading file');
