@@ -40,7 +40,8 @@ export const FileUpload = () => {
 
   return (
     <div className='formWrapper'>
-      <h1> Upload csv file only </h1>
+      <div className='form-container'>
+      <h1> Upload your csv file</h1>
       <form onSubmit={handleSubmit}>
         <input 
           type='file' 
@@ -52,6 +53,7 @@ export const FileUpload = () => {
         </button>
       </form>
       {responseMsg && <p>{responseMsg}</p>}
+      </div>
     </div>
   )
 };

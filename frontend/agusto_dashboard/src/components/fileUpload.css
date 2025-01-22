@@ -1,29 +1,80 @@
-.formWrapper{
-  background: #ddd;
-  border-radius: 20px;
-  height: 80vh;
+.formWrapper {
+  height: 100vh;
   display: flex;
-  gap: 2rem;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Public Sans';
+  background-color: #f0f0f0; 
+  font-family: 'Public Sans', sans-serif;
 }
 
+.form-container {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 50px 60px;
+  text-align: center;
+  width: 60%;
+  height: 60%;
+  justify-content: center;
+  align-items: center;
+}
 
-button {
-  font-family: 'Public Sans';
+.form-container h1 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #09001d;
+  margin-bottom: 5rem;
+}
+
+input[type="file"] {
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  color: #6b6b6b;
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+  width: 100%;
+}
+
+input[type="file"]:hover {
+  border-color: #6822ff;
+  background-color: #f3f3ff;
+  cursor: pointer;
+}
+
+.form-container button {
+  font-family: 'Public Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #4CAF50;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #6822ff, #8b45ff);
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 7px;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #5b1edc, #7738e4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(104, 34, 255, 0.3);
 }
 
 button:disabled {
-  background-color: #cccccc;
+  background: #e5e5e5;
+  color: #9c9c9c;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20px;
 }
