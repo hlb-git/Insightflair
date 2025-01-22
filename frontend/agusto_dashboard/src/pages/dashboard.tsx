@@ -1,7 +1,7 @@
 import {BarChartComponent} from '../components/barchart';
 import {AreaChartComponent} from '../components/areachart';
 import {ScatterPlotComponent} from '../components/scatterplot';
-import {KPICard} from '../components/kpimetrics';
+import { useNavigate } from "react-router-dom";
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import './dashboard.css';
@@ -16,6 +16,7 @@ export function Dashboard() {
     totalCustomers: 0,
   });
 
+  const navigate = useNavigate();
   useEffect(() => {
     const requestData: any = async () => {
       try {
@@ -74,6 +75,8 @@ export function Dashboard() {
           {kpiMetrics.totalCustomers}</p></h3>
         </div>
       </div>
+        <button onClick={() => {navigate("/upload")}} className='more-upload'>
+          Upload Data</button>
     </div>
   )
 };
