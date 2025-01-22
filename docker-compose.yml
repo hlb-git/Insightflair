@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8
+    container_name: agusto_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: agusto_pwd
+      MYSQL_DATABASE: agusto_db
+      MYSQL_USER: agusto_user
+      MYSQL_PASSWORD: agusto_pwd
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - "3060:3306"
+
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./mysql-init.sql:/docker-entrypoint-initdb.d/mysql-init.sql
+    networks:
+      - agusto_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "5050:5050"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - agusto_network
+
+  frontend:
+    build:
+      context: ./frontend/agusto_dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    networks:
+      - agusto_network
+    depends_on:
+      - backend
+
+networks:
+  agusto_network:
+    driver: bridge
+
+volumes:
+  db_data:

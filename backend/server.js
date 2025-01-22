@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: 'localhost',
+  host: 'db',
   user: 'agusto_user',
   password: 'agusto_pwd',
   database: 'agusto_db'
@@ -27,6 +27,38 @@ const db = mysql.createConnection({
 db.connect((err) => {
   if (err) throw err;
   console.log("Connection to database is successful");
+});
+
+const csvTableQuery = `CREATE TABLE IF NOT EXISTS agusto_data(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  date VARCHAR(20) NOT NULL,
+  revenue INT NOT NULL,
+  expenses INT NOT NULL,
+  customer_count INT NOT NULL,
+  profit INT NOT NULL
+)`;
+
+
+db.query(csvTableQuery, (err, results) => {
+  if (err) {
+    console.error("Error executing Users query:", err);
+  } else {
+    console.log("Table 'agusto_users' created or already exists.");
+  }
+});
+
+const userTableQuery = `CREATE TABLE IF NOT EXISTS agusto_users(
+  email VARCHAR(40) PRIMARY KEY,
+  password VARCHAR(20) NOT NULL,
+  name VARCHAR(40) 
+  )`;
+
+db.query(userTableQuery, (err, results) => {
+  if (err) {
+    console.error("Error executing query:", err);
+  } else {
+    console.log("Table 'agusto_data' created or already exists.");
+  }
 });
 
 
@@ -53,8 +85,9 @@ app.post('/api/newuser', (req, res) => {
       [email, password, name], (err, results) => {
         if (err) {
           res.status(500).send('Error creating user')
-        }
+        } else {
         res.send('New user created successfully')
+        }
       });
   } catch (error) {
     console.log(error)
