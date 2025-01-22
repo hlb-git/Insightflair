@@ -11,6 +11,11 @@ CREATE TABLE IF NOT EXISTS agusto_data(
   profit INT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS agusto_users(
+  email VARCHAR(40) PRIMARY KEY,
+  password VARCHAR(20) NOT NULL,
+  name VARCHAR(40) 
+  );
 
 CREATE USER IF NOT EXISTS 'agusto_user'@'localhost' IDENTIFIED BY 'agusto_pwd';
 

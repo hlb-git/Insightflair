@@ -44,6 +44,25 @@ const dbWriter = (row) => {
   });
 };
 
+app.post('/api/newuser', (req, res) => {
+  try{
+    const {email, password, name} = req.body;
+    const query = 'INSERT INTO agusto_users (email, password, name) VALUES(?, ?, ?)';
+    db.query(
+      query,
+      [email, password, name], (err, results) => {
+        if (err) {
+          res.status(500).send('Error creating user')
+        }
+        res.send('New user created successfully')
+      });
+  } catch (error) {
+    console.log(error)
+    res.status(500).send('Error creating user')
+  };
+});
+  
+
 
 app.post('/api/upload', upload.single('file'), async (req, res) => {
   const filePath = req.file.path;
@@ -80,4 +99,5 @@ app.get('/api/metrics', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}...`);
 });
+
 
