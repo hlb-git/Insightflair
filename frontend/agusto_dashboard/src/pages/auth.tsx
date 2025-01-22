@@ -16,9 +16,6 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 
-const NewUser = async () => {
-}
-
 
 export function Auth() {
   const [isSignup, setSignup] = useState(false);
@@ -58,13 +55,17 @@ export function Auth() {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await Login(formData.email, formData.password);
-    if (response.status === 200) {
-      let data = response.data;
-      data.page = "Dashboard";
-      console.log(data.page);
-      navigate("/dashboard", { state: { data } });
+    try {
+      const response = await axios.post('http://localhost:5050/api/getuser', 
+                                        formData);
+      if (response.status === 200) {
+        navigate("/dashboard");
+      }
+    } catch (error){
+      console.error(error);
+      alert('Wrong email or password: Try again');
     }
+
   };
 
   return (

@@ -62,7 +62,22 @@ app.post('/api/newuser', (req, res) => {
   };
 });
   
-
+app.post('/api/getuser', (req, res) => {
+  const {email, password} = req.body;
+  const query = 'SELECT email, password FROM agusto_users WHERE email = ?'; 
+  db.query(query, [email], (err, results) => {
+    console.log(results);
+    if (err ) {
+      console.log('Error: User not found');
+      res.status(404).send('User not found');
+    } else {
+      if (password === results[0].password) { 
+        res.json(results);
+        console.log('yaaas');
+      }
+    };
+  });
+});
 
 app.post('/api/upload', upload.single('file'), async (req, res) => {
   const filePath = req.file.path;
