@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import illustration from "../assets/illustration.jpg";
@@ -15,7 +15,6 @@ import {
   MDBInput,
   MDBIcon,
 } from "mdb-react-ui-kit";
-
 
 export function Auth() {
   const [isSignup, setSignup] = useState(false);
@@ -42,30 +41,33 @@ export function Auth() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:5050/api/newuser', formData);
+        "http://localhost:5050/api/newuser",
+        formData
+      );
       if (response.status === 200) {
-          alert('Registration Successfull: Please login');
-          toggleView();
-        }
+        alert("Registration Successfull: Please login");
+        toggleView();
+      }
     } catch (error) {
-      console.log(error)
-      alert('Registration failed');
-    };
+      console.log(error);
+      alert("Registration failed");
+    }
   };
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5050/api/getuser', 
-                                        formData);
+      const response = await axios.post(
+        "http://localhost:5050/api/getuser",
+        formData
+      );
       if (response.status === 200) {
         navigate("/dashboard");
       }
-    } catch (error){
+    } catch (error) {
       console.error(error);
-      alert('Wrong email or password: Try again');
+      alert("Wrong email or password: Try again");
     }
-
   };
 
   return (
@@ -96,7 +98,7 @@ export function Auth() {
                     <div className="d-flex flex-row align-items-center mb-4 ">
                       <MDBIcon fas icon="user me-3" size="lg" />
                       <MDBInput
-                        label="Your Fullname" 
+                        label="Your Fullname"
                         id="name"
                         type="name"
                         value={formData.name}
@@ -177,7 +179,12 @@ export function Auth() {
                   </a>
                 </p>
 
-                <MDBBtn style={{ background: '#6822ff' }} className="mb-4" size="lg" type="submit">
+                <MDBBtn
+                  style={{ background: "#6822ff" }}
+                  className="mb-4"
+                  size="lg"
+                  type="submit"
+                >
                   {isSignup ? "Signup" : "Login"}
                 </MDBBtn>
               </form>
