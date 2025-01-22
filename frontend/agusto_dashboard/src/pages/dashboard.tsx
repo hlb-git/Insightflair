@@ -1,4 +1,6 @@
 import {BarChartComponent} from '../components/barchart';
+import {AreaChartComponent} from '../components/areachart';
+import {ScatterPlotComponent} from '../components/scatterplot';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import './dashboard.css';
@@ -31,10 +33,10 @@ export function Dashboard() {
           <BarChartComponent data={data} />
         </div>
         <div className="chart-item">
-          <BarChartComponent data={data} />
+          <AreaChartComponent data={data} />
         </div>
         <div className="chart-item">
-          <BarChartComponent data={data} />
+          <ScatterPlotComponent data={data} />
         </div>
         <div className="chart-item">
           <BarChartComponent data={data} />
