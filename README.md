@@ -1,30 +1,49 @@
-# Welcome to the Agusto_test repository
+# Welcome to the Agusto_Test Repository
 
-Note: This installation instruction is designed for Linux(debian)
+This repository contains the source code for the Agusto_Test project. Follow the instructions below to set up and run the application on a **Linux (Debian-based)** system.
 
+---
 
-To run the app follow the steps below:
+## Prerequisites
 
-#### 1. Clone the repository
-```
+Before proceeding, ensure the following tools are installed on your system:
+- **Git**: For cloning the repository.
+- **Docker**: Ensure you have Docker installed and running.
+  - Check your Docker version: `docker --version`.
+  - If you're using **Docker Compose v2**, the command is `docker compose` (without a hyphen).
+  - If you're using an older version, the command remains `docker-compose` (with a hyphen).
+
+---
+
+## Installation and Running the App
+
+Follow these steps to set up and run the application:
+
+### 1. Clone the Repository
+Clone the repository to your local machine:
+```bash
 git clone https://github.com/hlb-git/Agusto_Test.git
 ```
 
-#### 2. Change your pwd to the repo
+### 2. Change your pwd to the repo
 ``` 
 cd Agusto_Test/
 ```
 
-#### 3. Run the application with one command
+### 3. Run the application with one command
 ```
-docker compose up --build     #if you're using docker version 2
+docker compose up --build   
 ```
-or 
+* For older version
 
 ```
-docker-compose up --build   #if you're not using V2
+docker-compose up --build 
 ```
-#### 4 Then go to your browser
+### 4 Then go to your browser
 ```
 http://localhost:3000
 ```
+
+## Additional Note:
+
+* Please make sure no other application is listening on port 3000 before starting the app
