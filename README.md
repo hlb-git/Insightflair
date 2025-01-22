@@ -17,12 +17,12 @@ cd Agusto_Test/
 
 #### 3. Run the application with one command
 ```
-docker compose run --build     #if you're using docker version 2
+docker compose up --build     #if you're using docker version 2
 ```
 or 
 
 ```
-docker-compose run --build   #if you're not using V2
+docker-compose up --build   #if you're not using V2
 ```
 #### 4 Then go to your browser
 ```
