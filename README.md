@@ -24,3 +24,7 @@ or
 ```
 docker-compose run --build   #if you're not using V2
 ```
+#### 4 Then go to your browser
+```
+http://localhost:3000
+```
