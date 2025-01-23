@@ -11,10 +11,18 @@ const upload = multer({
   limits: { filesize: 10 * 1024 * 1024 }
 });
 
+const corsOptions = {
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
+
 const PORT = process.env.PORT || 5050;
 const app = express();
 app.options('*', cors());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 let db;
