@@ -111,7 +111,7 @@ app.post('/api/getuser', (req, res) => {
         console.log('Error: User not found');
         res.status(404).send('User not found');
       } else {
-        if (password === results[0].password) { 
+        if (results[0].password && password === results[0].password) { 
           res.json(results);
         } else {
           res.status(401).send('Incorrect password');
