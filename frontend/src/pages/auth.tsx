@@ -81,7 +81,7 @@ export function Auth() {
       >
         <h1
           style={{
-            fontWeight: "700",
+            fontWeight: "800",
             display: "flex",
             color: "#273746",
             paddingTop: "1rem",
