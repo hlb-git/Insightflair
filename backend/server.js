@@ -102,18 +102,26 @@ app.post('/api/newuser', (req, res) => {
 });
   
 app.post('/api/getuser', (req, res) => {
-  const {email, password} = req.body;
-  const query = 'SELECT email, password FROM agusto_users WHERE email = ?'; 
-  db.query(query, [email], (err, results) => {
-    if (err ) {
-      console.log('Error: User not found');
-      res.status(404).send('User not found');
-    } else {
-      if (password === results[0].password) { 
-        res.json(results);
+  try {
+    const { email, password } = req.body;
+    const query = 'SELECT email, password FROM agusto_users WHERE email = ?'; 
+    
+    db.query(query, [email], (err, results) => {
+      if (err) {
+        console.log('Error: User not found');
+        res.status(404).send('User not found');
+      } else {
+        if (password === results[0].password) { 
+          res.json(results);
+        } else {
+          res.status(401).send('Incorrect password');
+        }
       }
-    };
-  });
+    });
+  } catch (error) {
+    console.error('Unexpected error:', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 app.post('/api/upload', upload.single('file'), async (req, res) => {
