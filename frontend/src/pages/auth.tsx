@@ -85,7 +85,7 @@ export function Auth() {
             display: "flex",
             color: "#273746",
             paddingTop: "1rem",
-            fontFamily: "Public Sans",
+            fontFamily: "Fraunces",
             justifyContent: "center",
           }}
           className="welcomeMsg"
