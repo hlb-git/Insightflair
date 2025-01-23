@@ -17,12 +17,18 @@ app.options('*', cors());
 app.use(cors());
 app.use(express.json());
 
-const db = mysql.createConnection({
-  host: 'db',
-  user: 'agusto_user',
-  password: 'agusto_pwd',
-  database: 'agusto_db'
-});
+let db;
+
+if (process.env.JAWSDB_URL) {
+  db = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  db = mysql.createConnection({
+    host: 'db',
+    user: 'agusto_user',
+    password: 'agusto_pwd',
+    database: 'agusto_db'
+  });
+}
 
 db.connect((err) => {
   if (err) throw err;

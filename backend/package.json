@@ -1,5 +1,8 @@
 {
-  "name": "backend",
+  "description": "Backend API for my project",
+  "author": "Love Omoseebi",
+  "license": "MIT",
+  "name": "Agusto Test backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

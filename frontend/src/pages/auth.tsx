@@ -41,7 +41,7 @@ export function Auth() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5050/api/newuser",
+        "https://agusto-api-f2cc65343210.herokuapp.com/api/newuser",
         formData
       );
       if (response.status === 200) {
@@ -58,7 +58,7 @@ export function Auth() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5050/api/getuser",
+        "https://agusto-api-f2cc65343210.herokuapp.com/api/getuser",
         formData
       );
       if (response.status === 200) {
@@ -79,14 +79,19 @@ export function Auth() {
           background: "#F1F0EE",
         }}
       >
-      <h1 style={{ fontWeight: "700",
-      display: "flex",
-      color: "#273746",
-      paddingTop: "1rem",
-      fontFamily: "Public Sans",
-      justifyContent: "center"
-      }} className="welcomeMsg">
-        Welcome to Love's Agusto Technical Accessment Solution.</h1>
+        <h1
+          style={{
+            fontWeight: "700",
+            display: "flex",
+            color: "#273746",
+            paddingTop: "1rem",
+            fontFamily: "Public Sans",
+            justifyContent: "center",
+          }}
+          className="welcomeMsg"
+        >
+          Welcome to Love's Agusto Technical Accessment Solution.
+        </h1>
         <MDBCardBody>
           <MDBRow>
             <MDBCol

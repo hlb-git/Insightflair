@@ -25,7 +25,7 @@ export const FileUpload = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5050/api/upload",
+        "https://agusto-api-f2cc65343210.herokuapp.com/api/upload",
         formData,
         {
           headers: {
