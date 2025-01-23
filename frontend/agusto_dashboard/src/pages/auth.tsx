@@ -79,6 +79,14 @@ export function Auth() {
           background: "#F1F0EE",
         }}
       >
+      <h1 style={{ fontWeight: "700",
+      display: "flex",
+      color: "#273746",
+      paddingTop: "1rem",
+      fontFamily: "Public Sans",
+      justifyContent: "center"
+      }} className="welcomeMsg">
+        Welcome to Love's Agusto Technical Accessment Solution.</h1>
         <MDBCardBody>
           <MDBRow>
             <MDBCol

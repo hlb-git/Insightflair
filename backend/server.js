@@ -11,7 +11,7 @@ const upload = multer({
   limits: { filesize: 10 * 1024 * 1024 }
 });
 
-const PORT = 5050;
+const PORT = process.env.PORT || 5050;
 const app = express();
 app.options('*', cors());
 app.use(cors());
