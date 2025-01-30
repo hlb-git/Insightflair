@@ -1,12 +1,13 @@
-# Welcome to the Agusto_Test Repository
+# Welcome to the CsVisual Repository
 
-This repository contains the source code for the Agusto_Test project. Follow the instructions below to set up and run the application on a **Linux (Debian-based)** system.
+This repository contains the source code for the CsVisual project. Follow the instructions below to set up and run the application on a **Linux (Debian-based)** system.
 
 ---
 
 ## Prerequisites
 
 Before proceeding, ensure the following tools are installed on your system:
+
 - **Git**: For cloning the repository.
 - **Docker**: Ensure you have Docker installed and running.
   - Check your Docker version: `docker --version`.
@@ -20,30 +21,37 @@ Before proceeding, ensure the following tools are installed on your system:
 Follow these steps to set up and run the application:
 
 ### 1. Clone the Repository
+
 Clone the repository to your local machine:
+
 ```bash
-git clone https://github.com/hlb-git/Agusto_Test.git
+git clone https://github.com/hlb-git/CsVisual.git
 ```
 
 ### 2. Change your pwd to the repo
-``` 
-cd Agusto_Test/
+
+```
+cd CsVisual/
 ```
 
 ### 3. Run the application with one command
-```
-docker compose up --build   
-```
-* For older version
 
 ```
-docker-compose up --build 
+docker compose up --build
 ```
+
+- For older version
+
+```
+docker-compose up --build
+```
+
 ### 4 Then go to your browser
+
 ```
 http://localhost:3000
 ```
 
 ## Additional Note:
 
-* Please make sure no other application is listening on port 3000 before starting the app
+- Please make sure no other application is listening on port 3000 before starting the app
