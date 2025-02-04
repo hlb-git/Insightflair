@@ -1,3 +1,3 @@
-CREATE USER IF NOT EXISTS 'agusto_user'@'%' IDENTIFIED BY 'agusto_pwd';
-GRANT ALL PRIVILEGES ON agusto_db.* TO 'agusto_user'@'%';
+CREATE USER IF NOT EXISTS 'insightflair_user'@'%' IDENTIFIED BY 'insightflair_pwd';
+GRANT ALL PRIVILEGES ON insightflair_db.* TO 'insightflair_user'@'%';
 FLUSH PRIVILEGES;

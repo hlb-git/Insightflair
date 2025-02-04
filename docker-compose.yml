@@ -3,13 +3,13 @@ version: "3.8"
 services:
   db:
     image: mysql:8
-    container_name: agusto_db
+    container_name: insightflair_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: agusto_pwd
-      MYSQL_DATABASE: agusto_db
-      MYSQL_USER: agusto_user
-      MYSQL_PASSWORD: agusto_pwd
+      MYSQL_ROOT_PASSWORD: insightflair_pwd
+      MYSQL_DATABASE: insightflair_db
+      MYSQL_USER: insightflair_user
+      MYSQL_PASSWORD: insightflair_pwd
       MYSQL_ROOT_HOST: "%"
     ports:
       - "3060:3306"
@@ -18,7 +18,7 @@ services:
       - db_data:/var/lib/mysql
       - ./mysql-init.sql:/docker-entrypoint-initdb.d/mysql-init.sql
     networks:
-      - agusto_network
+      - insightflair_network
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -36,21 +36,21 @@ services:
       db:
         condition: service_healthy
     networks:
-      - agusto_network
+      - insightflair_network
 
   frontend:
     build:
-      context: ./frontend/agusto_dashboard
+      context: ./frontend/insightflair_dashboard
       dockerfile: Dockerfile
     ports:
       - "3000:80"
     networks:
-      - agusto_network
+      - insightflair_network
     depends_on:
       - backend
 
 networks:
-  agusto_network:
+  insightflair_network:
     driver: bridge
 
 volumes:

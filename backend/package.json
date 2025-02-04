@@ -1,8 +1,8 @@
 {
-  "description": "Backend API for my project",
+  "description": "Backend API for my InsightFlair",
   "author": "Love Omoseebi",
   "license": "MIT",
-  "name": "Agusto Test backend",
+  "name": "InsightFlair",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

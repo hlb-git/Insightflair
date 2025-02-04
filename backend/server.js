@@ -32,9 +32,9 @@ if (process.env.JAWSDB_URL) {
 } else {
   db = mysql.createConnection({
     host: 'db',
-    user: 'agusto_user',
-    password: 'agusto_pwd',
-    database: 'agusto_db'
+    user: 'insightflair_user',
+    password: 'insightflair_pwd',
+    database: 'insightflair_db'
   });
 }
 
@@ -43,7 +43,7 @@ db.connect((err) => {
   console.log("Connection to database is successful");
 });
 
-const csvTableQuery = `CREATE TABLE IF NOT EXISTS agusto_data(
+const csvTableQuery = `CREATE TABLE IF NOT EXISTS insightflair_data(
   id INT AUTO_INCREMENT PRIMARY KEY,
   date VARCHAR(20) NOT NULL,
   revenue INT NOT NULL,
@@ -57,11 +57,11 @@ db.query(csvTableQuery, (err, results) => {
   if (err) {
     console.error("Error executing Users query:", err);
   } else {
-    console.log("Table 'agusto_users' created or already exists.");
+    console.log("Table 'insightflair_users' created or already exists.");
   }
 });
 
-const userTableQuery = `CREATE TABLE IF NOT EXISTS agusto_users(
+const userTableQuery = `CREATE TABLE IF NOT EXISTS insightflair_users(
   email VARCHAR(40) PRIMARY KEY,
   password VARCHAR(20) NOT NULL,
   name VARCHAR(40) 
@@ -71,7 +71,7 @@ db.query(userTableQuery, (err, results) => {
   if (err) {
     console.error("Error executing query:", err);
   } else {
-    console.log("Table 'agusto_data' created or already exists.");
+    console.log("Table 'insightflair_data' created or already exists.");
   }
 });
 
@@ -79,7 +79,7 @@ db.query(userTableQuery, (err, results) => {
 const dbWriter = (row) => {
   return new Promise((resolve, reject) => {
     const { date, revenue, expenses, profit, customer_count } = row;
-    const query = 'INSERT INTO agusto_data (date, revenue, expenses, profit, customer_count) VALUES (?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO insightflair_data (date, revenue, expenses, profit, customer_count) VALUES (?, ?, ?, ?, ?)';
     db.query(
       query, 
       [date, revenue, expenses, profit, customer_count],
@@ -93,7 +93,7 @@ const dbWriter = (row) => {
 app.post('/api/newuser', (req, res) => {
   try{
     const {email, password, name} = req.body;
-    const query = 'INSERT INTO agusto_users (email, password, name) VALUES(?, ?, ?)';
+    const query = 'INSERT INTO insightflair_users (email, password, name) VALUES(?, ?, ?)';
     db.query(
       query,
       [email, password, name], (err, results) => {
@@ -112,7 +112,7 @@ app.post('/api/newuser', (req, res) => {
 app.post('/api/getuser', (req, res) => {
   try {
     const { email, password } = req.body;
-    const query = 'SELECT email, password FROM agusto_users WHERE email = ?'; 
+    const query = 'SELECT email, password FROM insightflair_users WHERE email = ?'; 
     
     db.query(query, [email], (err, results) => {
       if (err) {
@@ -149,7 +149,7 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
 
 app.get('/api/metrics', (req, res) => {
   try {
-    const query = "SELECT * FROM agusto_data";
+    const query = "SELECT * FROM insightflair_data";
     db.query(query, (err, results) => {
       if (err) {
         console.log('Error fetching data from database');
