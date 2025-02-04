@@ -1,6 +1,6 @@
-# Welcome to the CsVisual Repository
+# Welcome to the Insightflair Repository
 
-This repository contains the source code for the CsVisual project. Follow the instructions below to set up and run the application on a **Linux (Debian-based)** system.
+This repository contains the source code for the Insightflair project. Follow the instructions below to set up and run the application on a **Linux (Debian-based)** system.
 
 ---
 
@@ -25,13 +25,13 @@ Follow these steps to set up and run the application:
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/hlb-git/CsVisual.git
+git clone https://github.com/hlb-git/Insightflair.git
 ```
 
 ### 2. Change your pwd to the repo
 
 ```
-cd CsVisual/
+cd Insightflair/
 ```
 
 ### 3. Run the application with one command
