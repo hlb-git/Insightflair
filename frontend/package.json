@@ -1,7 +1,9 @@
 {
-  "name": "agusto_dashboard",
+  "name": "Insightflair",
+  "description": "Frontend for InsightFlair",
+  "author": "Love Omoseebi",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

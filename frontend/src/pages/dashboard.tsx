@@ -19,9 +19,7 @@ export function Dashboard() {
   useEffect(() => {
     const requestData: any = async () => {
       try {
-        const response = await axios.get(
-          "https://agusto-api-f2cc65343210.herokuapp.com/api/metrics"
-        );
+        const response = await axios.get("http://localhost:5050/api/metrics");
         let totalRevenue = 0;
         let totalExpenses = 0;
         let totalProfit = 0;

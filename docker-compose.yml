@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   db:
     image: mysql:8
@@ -40,7 +38,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend/insightflair_dashboard
+      context: ./frontend
       dockerfile: Dockerfile
     ports:
       - "3000:80"
