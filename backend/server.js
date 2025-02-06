@@ -26,18 +26,18 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 let db;
+let hostMachine = process.env.DOCKER ? 'db' : 'localhost';
 
 if (process.env.JAWSDB_URL) {
   db = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   db = mysql.createConnection({
-    host: 'db',
+    host: hostMachine,
     user: 'insightflair_user',
     password: 'insightflair_pwd',
     database: 'insightflair_db'
   });
 }
-
 db.connect((err) => {
   if (err) throw err;
   console.log("Connection to database is successful");
