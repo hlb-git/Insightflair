@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS insightflair_data(
 
 CREATE TABLE IF NOT EXISTS insightflair_users(
   email VARCHAR(40) PRIMARY KEY,
-  password VARCHAR(20) NOT NULL,
+  password VARCHAR(100) NOT NULL,
   name VARCHAR(40) 
   );
 

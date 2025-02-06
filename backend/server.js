@@ -4,6 +4,7 @@ const cors = require('cors');
 const multer = require('multer');
 const mysql = require('mysql2');
 const csvParser = require('./helperFunctions/csvParser');
+const bcrypt = require('bcrypt');
 
 
 const upload = multer({
@@ -90,40 +91,72 @@ const dbWriter = (row) => {
   });
 };
 
-app.post('/api/newuser', (req, res) => {
-  try{
-    const {email, password, name} = req.body;
-    const query = 'INSERT INTO insightflair_users (email, password, name) VALUES(?, ?, ?)';
-    db.query(
-      query,
-      [email, password, name], (err, results) => {
-        if (err) {
-          res.status(500).send('Error creating user')
-        } else {
-        res.send('New user created successfully')
+app.post('/api/newuser', async (req, res) => {
+  try {
+    const { email, password, name } = req.body;
+
+    // Basic input validation
+    if (!email || !password || !name) {
+      return res.status(400).send('All fields are required');
+    }
+
+    // Check if user already exists
+    const checkUserQuery = 'SELECT email FROM insightflair_users WHERE email = ?';
+    db.query(checkUserQuery, [email], async (err, results) => {
+      if (err) {
+        console.error('Database query error:', err);
+        return res.status(500).send('Internal Server Error');
+      }
+
+      if (results.length > 0) {
+        return res.status(409).send('Email already exists');
+      }
+
+      // Hash the password before storing
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      // Insert new user into the database
+      const insertQuery = `INSERT INTO insightflair_users 
+                          (email, password, name) 
+                          VALUES (?, ?, ?)`;
+      db.query(insertQuery, [email, hashedPassword, name], (insertErr) => {
+        if (insertErr) {
+          console.error('Database insert error:', insertErr);
+          return res.status(500).send('Error creating user');
         }
+        res.status(200).send('New user created successfully');
       });
+    });
   } catch (error) {
-    console.log(error)
-    res.status(500).send('Error creating user')
-  };
+    console.error('Unexpected error:', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
   
 app.post('/api/getuser', (req, res) => {
   try {
     const { email, password } = req.body;
-    const query = 'SELECT email, password FROM insightflair_users WHERE email = ?'; 
-    
-    db.query(query, [email], (err, results) => {
+    const query = `SELECT email, password 
+                  FROM insightflair_users 
+                  WHERE email = ?`;
+
+    db.query(query, [email], async (err, results) => {
       if (err) {
-        console.log('Error: User not found');
-        res.status(404).send('User not found');
+        console.error('Database query error:', err);
+        return res.status(500).send('Internal Server Error');
+      }
+
+      if (results.length === 0) {
+        return res.status(404).send('User not found');
+      }
+
+      const user = results[0];
+      const passwordMatch = await bcrypt.compare(password, user.password);
+
+      if (passwordMatch) {
+        res.json({ email: user.email });
       } else {
-        if (results[0].password && password === results[0].password) { 
-          res.json(results);
-        } else {
-          res.status(401).send('Incorrect password');
-        }
+        res.status(401).send('Incorrect password');
       }
     });
   } catch (error) {
