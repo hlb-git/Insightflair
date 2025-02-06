@@ -11,7 +11,7 @@ Before proceeding, ensure the following tools are installed on your system:
 - **Git**: For cloning the repository.
 - **Docker**: Ensure you have Docker installed and running.
   - Check your Docker version: `docker --version`.
-  - If you're using **Docker Compose v2**, the command is `docker compose` (without a hyphen).
+  - If you're using **Docker 20.10+**, the command is `docker compose` (without a hyphen).
   - If you're using an older version, the command remains `docker-compose` (with a hyphen).
 
 ---
