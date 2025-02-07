@@ -1,5 +1,8 @@
 # Welcome to the Insightflair Repository
 
+![Screenshot from 2025-02-07 22-58-35](https://github.com/user-attachments/assets/90277be7-02b2-4cde-93af-ca0053094895)
+
+
 This repository contains the source code for the Insightflair project. Follow the instructions below to set up and run the application on a **Linux (Debian-based)** system.
 
 ---
