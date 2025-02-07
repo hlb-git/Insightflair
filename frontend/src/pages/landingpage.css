@@ -1,0 +1,32 @@
+.parent{
+  min-height: 100vh;
+  background: #FFF;
+  padding-top: 1rem;
+}
+
+.h-wrapper {
+  width: 90%;
+  margin: auto; 
+}
+
+.header{
+  min-height: 3rem;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  font-family: "Fraunces";
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.links{
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  height: 3rem;
+  background: #f6f6f6;
+}
