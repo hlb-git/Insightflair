@@ -18,8 +18,8 @@ export const BarChartComponent = ({ data }: { data: any[] }) => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="revenue" fill="#8884d8" />
-          <Bar dataKey="expenses" fill="#82ca9d" />
+          <Bar dataKey="revenue" fill="#016DFF" />
+          <Bar dataKey="expenses" fill="#00D36D" />
         </BarChart>
       </ResponsiveContainer>
   )

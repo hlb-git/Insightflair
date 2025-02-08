@@ -25,7 +25,7 @@ export const FileUpload = () => {
 
     try {
       const response = await axios.post(
-        "https://localhost:5050/api/upload",
+        "http://localhost:5050/api/upload",
         formData,
         {
           headers: {

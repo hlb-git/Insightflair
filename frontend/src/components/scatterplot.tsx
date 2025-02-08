@@ -14,7 +14,7 @@ export const ScatterPlotComponent = ({ data }: { data: any[] }) => {
         <XAxis dataKey="customer_count" name="Customers" />
         <YAxis dataKey="revenue" name="Revenue" />
         <Tooltip />
-        <Scatter data={data} fill="#8884d8" />
+        <Scatter data={data} fill="#016DFF" />
       </ScatterChart>
     </ResponsiveContainer>
   );

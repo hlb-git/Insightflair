@@ -13,7 +13,7 @@ export function Landing() {
           <span className="logo">
             Flair
           </span>
-          <div className="links">
+          <div className="menus">
             <Link to="#"> Overview </Link>  
             <Link to="#"> FAQ </Link>
             <Link to="#"> Privacy and terms </Link>
@@ -31,8 +31,8 @@ export function Landing() {
           <h2 className="secondry"> Find the Story Behind Your Numbers </h2>
           <h3 className="detail"> Upload your CSV, let our system do the rest—store, analyze, and infere Insight.</h3> 
           <div className="buttons">
-            <button className="get-started"> Get Started </button>
-            <button className="learn-more"> Learn More </button>
+            <Link to="/auth" className="get-started"> Get Started </Link>
+            <Link to="#" className="learn-more"> Learn More </Link>
           </div>
         </div>
         <div className="hero-image">

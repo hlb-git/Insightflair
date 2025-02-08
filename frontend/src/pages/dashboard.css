@@ -1,5 +1,5 @@
 .dboard-wrapper {
-  height: 100vh;
+  min-height: 1000px;
   width: 100%;
   background: linear-gradient(135deg, #f5f7fa, #ebebeb);
   font-family: 'Public Sans', sans-serif;
@@ -25,7 +25,7 @@
   grid-template-rows: repeat(2, 1fr);
   gap: 2rem; 
   width: 90%;
-  height: 80vh;
+  min-height: 800px;
   background: #ffffff;
   border-radius: 20px;
   padding: 2rem;
@@ -43,13 +43,13 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .figure{
-  color: #8884d8;
+  color: #00D36D;
   font-size: 25px;
   font-weight: 700;
 }
 .kpi h3 {
   font-weight: 800;
-  color: #515a5a;
+  color: #016DFF;
   font-size: 25px;
 }
 .kpi{

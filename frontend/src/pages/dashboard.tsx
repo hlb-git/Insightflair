@@ -63,20 +63,20 @@ export function Dashboard() {
         <div className="chart-item kpi">
           <h3>
             {" "}
-            Total Revenue: <p className="figure">N{kpiMetrics.totalRevenue}</p>
+            Total Revenue:<br/> <p className="figure">N{kpiMetrics.totalRevenue}</p>
           </h3>
           <h3>
             {" "}
-            Total Expenses:{" "}
+            Total Expenses:<br/>{" "}
             <p className="figure">N{kpiMetrics.totalExpenses}</p>
           </h3>
           <h3>
             {" "}
-            Total Profit: <p className="figure">N{kpiMetrics.totalProfit}</p>
+            Total Profit: <br/><p className="figure">{kpiMetrics.totalProfit}</p>
           </h3>
           <h3>
             {" "}
-            Total Customers:{" "}
+            Total Customers:<br/>{" "}
             <p className="figure">{kpiMetrics.totalCustomers}</p>
           </h3>
         </div>

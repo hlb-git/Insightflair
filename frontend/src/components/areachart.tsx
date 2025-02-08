@@ -18,8 +18,8 @@ export const AreaChartComponent = ({ data }: { data: any[] }) => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Area type='monotone' dataKey="revenue" fill="#8884d8" />
-          <Area type='monotone' dataKey="expenses" fill="#82ca9d" />
+          <Area type='monotone' dataKey="revenue" fill="#016DFF" />
+          <Area type='monotone' dataKey="expenses" fill="#00D36D" />
         </AreaChart>
       </ResponsiveContainer>
   )
