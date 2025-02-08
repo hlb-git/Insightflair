@@ -21,6 +21,8 @@ This repository contains the source code for the InsightFlair project. Follow th
 ### Deployment & DevOps:
 
 - Vercel
+- Heroku
+- AWS
 - Docker Compose (for local development)
 
 ---
