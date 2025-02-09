@@ -54,12 +54,15 @@ export function Dashboard() {
       <h1 className="dboard-title">Welcome to Dashboard</h1>
       <div className="dboard-container">
         <div className="chart-item">
+          <h3 className="legend"> Expenses & Profit vs Time</h3>
           <BarChartComponent data={data} />
         </div>
         <div className="chart-item">
+          <h3 className="legend"> Expenses & Profit Trends</h3>
           <AreaChartComponent data={data} />
         </div>
         <div className="chart-item">
+          <h3 className="legend">Profit per Customer Count</h3>
           <ScatterPlotComponent data={data} />
         </div>
         <div className="chart-item kpi">

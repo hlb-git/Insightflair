@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./fileUpload.css";
 import { useNavigate } from "react-router-dom";
+import illustration from '../assets/upload.png';
 
 export const FileUpload = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -45,9 +46,10 @@ export const FileUpload = () => {
   };
 
   return (
-    <div className="formWrapper">
+    <div className="pageWrapper">
+      <div className="p-container">
       <div className="form-container">
-        <h1> Upload your csv file</h1>
+        <h1> Upload A CSV File for Analysis</h1>
         <form onSubmit={handleSubmit}>
           <input type="file" accept=".csv" onChange={handleFileChange} />
           <button type="submit" disabled={uploading}>
@@ -55,6 +57,8 @@ export const FileUpload = () => {
           </button>
         </form>
         {responseMsg && <p>{responseMsg}</p>}
+      </div>
+      <img src={illustration}/>
       </div>
     </div>
   );
