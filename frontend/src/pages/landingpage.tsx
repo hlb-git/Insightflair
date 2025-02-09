@@ -1,30 +1,14 @@
 import './landingpage.css';
 import illustration from '../assets/landingimage.png';
 import {Link} from 'react-router-dom';
-
+import {Header} from '../components/header';
 
 export function Landing() {
   
   return (
     <>
       <div className="parent">
-      <div className="h-wrapper">
-        <div className="header">
-          <span className="logo">
-            Flair
-          </span>
-          <div className="menus">
-            <Link to="#"> Overview </Link>  
-            <Link to="#"> FAQ </Link>
-            <Link to="#"> Privacy and terms </Link>
-            <div className="login">
-            <Link to="/auth"> Login </Link> 
-            </div>
-          </div>
-          <div>
-          </div>
-        </div>
-      </div>
+      <Header />  
       <div className="hero-container">
         <div className="hero-texts">
           <h1 className="primary"> Find the Story Behind Your Numbers </h1>

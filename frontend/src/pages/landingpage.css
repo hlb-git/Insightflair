@@ -4,68 +4,6 @@
   padding-top: 1.5rem;
 }
 
-.h-wrapper {
-  width: 80%;
-  margin: auto; 
-}
-
-.header{
-  min-height: 3rem;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo{
-  font-family: "Poppins";
-  font-weight: 700;
-  font-size: 21px;
-  color: #686B6A;
-}
-
-.logo::before{
-  content: "Insight";
-  color: #016DFF;
-  font-weight: 700;
-}
-.menus{
-  padding: 1.5rem;
-  padding-right: 0;
-  display: flex;
-  background: #f2f3f4;
-  border-radius: 25px;
-  font-size: 14px;
-  gap: 2rem;
-  align-items: center;
-  height: 3rem;
-}
-
-.menus a{
-  font-family: "Poppins";
-  color: #686B6A;
-  font-weight: 500;
-  font-size: 14px;
-}
-.menus a:hover{
-  color: #016DFF;
-}
-
-.login a{
-  background: #01D36E;
-  font-family: "Poppins";
-  padding: 14px;
-  font-weight: 600;
-  padding-right: 25px;
-  padding-left: 25px;
-  border-radius: 35px;
-  color: #fff;
-}
-.login a:hover{
-  background: #FE8F00;
-  color: white;
-}
-
 .hero-container{
   background: #f6f6f6;
   margin: auto;

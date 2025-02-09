@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import illustration from "../assets/illustration.jpg";
+import illustration from "../assets/authentication.png";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import {Header} from '../components/header';
 import {
   MDBBtn,
   MDBContainer,
@@ -71,7 +72,8 @@ export function Auth() {
   };
 
   return (
-    <MDBContainer fluid>
+    <MDBContainer style={{ paddingTop: "1.5rem"}} fluid>
+    <Header />
       <MDBCard
         className="text-black m-5"
         style={{
@@ -180,7 +182,7 @@ export function Auth() {
                 </p>
 
                 <MDBBtn
-                  style={{ background: "#6822ff" }}
+                  style={{ background: "#016dff" }}
                   className="mb-4"
                   size="lg"
                   type="submit"
