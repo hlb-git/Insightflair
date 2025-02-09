@@ -16,6 +16,7 @@ export function Dashboard() {
   });
 
   const navigate = useNavigate();
+
   useEffect(() => {
     const requestData: any = async () => {
       try {
@@ -25,12 +26,13 @@ export function Dashboard() {
         let totalProfit = 0;
         let totalCustomers = 0;
 
-        for (const item of response.data) {
-          totalRevenue += item.revenue;
-          totalExpenses += item.expenses;
-          totalProfit += item.profit;
-          totalCustomers += item.customer_count;
+        for (let item of response.data) {
+          totalRevenue += Number(item.revenue);
+          totalExpenses += Number(item.expenses);
+          totalProfit += Number(item.profit);
+          totalCustomers += Number(item.customer_count);
         }
+
 
         setKpiMetrics({
           totalRevenue,
@@ -45,7 +47,7 @@ export function Dashboard() {
       }
     };
     requestData();
-  }, []);
+  }, []); // Dependency array belongs here
 
   return (
     <div className="dboard-wrapper">
@@ -63,21 +65,23 @@ export function Dashboard() {
         <div className="chart-item kpi">
           <h3>
             {" "}
-            Total Revenue:<br/> <p className="figure">N{kpiMetrics.totalRevenue}</p>
+            Total Revenue:
+            <br /> <p className="figure">N{kpiMetrics.totalRevenue}</p>
           </h3>
           <h3>
             {" "}
-            Total Expenses:<br/>{" "}
-            <p className="figure">N{kpiMetrics.totalExpenses}</p>
+            Total Expenses:
+            <br /> <p className="figure">N{kpiMetrics.totalExpenses}</p>
           </h3>
           <h3>
             {" "}
-            Total Profit: <br/><p className="figure">{kpiMetrics.totalProfit}</p>
+            Total Profit: <br />
+            <p className="figure">{kpiMetrics.totalProfit}</p>
           </h3>
           <h3>
             {" "}
-            Total Customers:<br/>{" "}
-            <p className="figure">{kpiMetrics.totalCustomers}</p>
+            Total Customers:
+            <br /> <p className="figure">{kpiMetrics.totalCustomers}</p>
           </h3>
         </div>
       </div>

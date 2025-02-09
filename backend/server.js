@@ -182,12 +182,20 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
 
 app.get('/api/metrics', (req, res) => {
   try {
-    const query = "SELECT * FROM insightflair_data";
+    const query = `SELECT 
+                  date, 
+                  SUM(revenue) AS revenue, 
+                  SUM(expenses) AS expenses, 
+                  SUM(profit) AS profit, 
+                  SUM(customer_count) AS customer_count
+                  FROM insightflair_data
+                  GROUP BY date`;
     db.query(query, (err, results) => {
       if (err) {
         console.log('Error fetching data from database');
         res.status(500).send('Error retrieving metrics from db');
       } else {
+        console.log(results);
         res.json(results);
       }
     });

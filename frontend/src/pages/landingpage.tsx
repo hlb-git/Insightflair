@@ -27,9 +27,8 @@ export function Landing() {
       </div>
       <div className="hero-container">
         <div className="hero-texts">
-          <h1 className="primary"> Welcome to InsightFlair</h1>
-          <h2 className="secondry"> Find the Story Behind Your Numbers </h2>
-          <h3 className="detail"> Upload your CSV, let our system do the rest—store, analyze, and infere Insight.</h3> 
+          <h1 className="primary"> Find the Story Behind Your Numbers </h1>
+          <h3 className="detail"> Upload your data file, let our system do the rest—store, analyze, and infer Insight.</h3> 
           <div className="buttons">
             <Link to="/auth" className="get-started"> Get Started </Link>
             <Link to="#" className="learn-more"> Learn More </Link>

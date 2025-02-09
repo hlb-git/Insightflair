@@ -91,33 +91,25 @@
 .primary{
   color: #000;
   font-family: "Poppins";
-  font-weight: 600;
-  font-size: 30px;
-}
-.secondry{
-  font-family: "Poppins";
-  font-weight: 600;
-  font-size: 22px;
-  color: grey;
+  font-weight: 700;
+  font-size: 50px;
+  padding-left: 2rem;
 }
 
 .detail{
-  margin-top: 3rem;
-  font-size: 20px;
-  font-weight: 600;
-  color: #909497;
+  margin-top: 2rem;
+  font-size: 18px;
+  color: grey;
   font-family: "Poppins";
-  padding-left: 35px;
-  padding-right: 20px;
+  padding-left: 2rem;
+  padding-right: 40px;
 }
 
 .buttons{
   margin-top: 2rem;
-  barkground: #000;
   display: flex;
   gap: 1rem;
-  justify-content: flex-start;
-  align-items: flex-start;
+  margin-left: -6rem;
 }   
 .get-started{
   font-family: "Poppins";
