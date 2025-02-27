@@ -33,7 +33,6 @@ export function Dashboard() {
           totalCustomers += Number(item.customer_count);
         }
 
-
         setKpiMetrics({
           totalRevenue,
           totalExpenses,

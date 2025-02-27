@@ -5,6 +5,27 @@
 
 This repository contains the source code for the InsightFlair project. Follow the instructions below to set up and run the application on a **Linux (Debian-based)** system.
 
+
+## Features
+
+**InsightFlair** is a full-stack application built with modern technologies to streamline data processing and visualization. Here’s what makes it stand out:
+
+- **Data Pipeline & CSV Visualization**
+  - Custom parser to process uploaded CSV files.
+  - Securely writes parsed data to the database.
+  - Visualizes data using the Recharts.js framework for clear, interactive insights.
+
+- **Robust User Authentication & Access Control**
+  - Implements secure user authentication to manage access.
+  - Ensures that only authorized users can interact with sensitive data.
+
+- **Scalable Full-Stack Architecture**
+  - **Frontend:** Developed with React.js and TypeScript for a dynamic, responsive UI.
+  - **Backend:** Powered by Node.js and Express.js with RESTful APIs.
+  - **Containerization:** Utilizes Docker for efficient deployment and scalability.
+  - **Cloud Integration:** Leverages AWS services for enhanced performance and reliability.
+
+
 ---
 
 ## 🛠 Tech Stack
